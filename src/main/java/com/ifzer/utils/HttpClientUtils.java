@@ -35,7 +35,10 @@ public class HttpClientUtils {
 	public static String post(String url) {
 		Preconditions.checkArgument(!Strings.isNullOrEmpty(url),
 				"url can't be null");
-		CloseableHttpClient client = HttpClientBuilder.create().build();
+
+//		HttpClient client = new DefaultHttpClient(); //4.1.X
+		CloseableHttpClient client = HttpClientBuilder.create().build(); //4.3.5 version
+
 		LOGGER.info(" url = {}", url);
 
 		HttpPost request = new HttpPost(url);
